@@ -1,0 +1,266 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+}
+
+nav a::after {
+    content: "|"
+}
+
+header#mainheader {
+  border: 1px solid black;
+  padding: 1em;
+}
+
+section#reviews {
+  width: 80%;
+  margin: auto;
+}
+
+article.review  {
+  border: 1px dashed grey;
+  padding: 1em;
+  margin: 1em;
+  box-shadow: 10px 10px 5px #888888;
+
+}
+
+.review > header {
+  color: red;
+}
+
+.review figure {
+  width: 15%;
+}
+
+.review figure > img {
+  width: 100%;
+  max-height: 150px;
+  max-width: 150px;
+}
+
+.review .description {
+  text-align: justify;
+}
+
+footer {
+ background-color: grey;
+ color: white;
+}
+
+/* After learning floats */
+nav {
+  float: left;
+  max-width: 20%;
+}
+
+nav a {
+  display: block;
+  overflow: scroll;
+  margin: 1em;
+  white-space : nowrap;
+  max-width: 100%;
+}
+
+nav a::after {
+  /* Actually just remove it */
+  content: ""
+}
+
+footer {
+  clear: both;
+}
+
+.review .category {
+  float: right;
+  font-style: italic;
+  text-align: right;
+  font-size: small;
+  width: 20%;
+  overflow: auto;
+  padding: 4px;
+}
+
+.review .description {
+  float: right;
+  width: 70%;
+  overflow: auto;
+  height: 5em;
+}
+
+.review figure {
+  float: left;
+  display: block;
+}
+
+.review .amenities {
+  clear: both;
+  float: right;
+  width: 20%;
+  overflow: auto;
+  font-size: small;
+}
+
+.review .user_likes {
+  clear: both;
+  float: left;
+  width: 20%;
+  overflow: auto;
+  font-size: small;
+}
+
+article.review:after {
+   content: ".";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+/* Let's work with the position tag*/
+header#mainheader {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 80px;
+  max-height: 100px;
+  clear:both;
+  background-color: #2196F3;
+  color: white;
+  z-index: 100;
+  overflow: auto;
+}
+
+nav, #reviews {
+  position: relative;
+  height: calc(100vh - 80px - 4em);
+  overflow: scroll;
+  top: calc(80px + 2em);
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  height: 2em;
+  width: 100%;
+}
+
+/*@media only screen
+and (max-device-width: 480px) and (orientation: portrait),
+ (max-device-width: 680px) and (orientation: landscape)*/
+@media only screen and (max-device-width: 480px)
+{
+  header#mainheader {
+    position: static;
+    font-size: 0.6em;
+    height: 10%;
+    overflow: auto;
+  }
+
+  nav {
+      float:none;
+      height: initial;
+      /* It's necessary to specify this first, or the width would
+         not be accepted because the previous max-width is set to 20 */
+      max-width: none;
+      width: auto;
+      position: static;
+      font-size: 0.5em;
+      display: block;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      max-height: 3em;
+  }
+
+  nav a {
+    display: block;
+    float: left;
+
+  }
+
+  /* I needed to add this */
+  nav > div {
+    width: 200%;
+  }
+
+  section#reviews {
+    position:relative;
+    top:auto;
+    height: initial;
+    padding: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    width:100%;
+  }
+
+  #reviews > .review {
+    width:100%;
+    margin: 20px 0px 0px 0px;
+    box-sizing: border-box;
+    box-shadow: none;
+  }
+
+  footer {
+    position: static;
+    font-size: 5pt;
+    text-align: center;
+  }
+
+
+
+  header#mainheader h1{
+    font-size: 1.5em;
+  }
+
+  .review .amenities {
+    width: auto;
+  }
+
+  .review figure {
+    margin:0px;
+    width: 30%;
+    float: right;
+  }
+
+  .review header {
+    float: left;
+    font-size: 0.8em;
+  }
+
+  .review .category {
+    float: left;
+    clear: left;
+    font-size: 0.4em;
+  }
+
+  .review .description {
+    font-size: small;
+    clear: both;
+    width: 100%;
+  }
+
+  .review .amenities {
+    border: 1px solid lightgrey;
+    background: lightgrey;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0px;
+    width: 100%;
+    padding: 4px;
+    overflow: auto;
+    display: block;
+  }
+}
