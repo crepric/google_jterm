@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
+/* General Properties */
+
 body {
   font-family: 'Open Sans', sans-serif;
 }
@@ -13,56 +15,45 @@ a:hover {
   color: red;
 }
 
-nav a::after {
-    content: "|"
-}
-
 header#mainheader {
-  border: 1px solid black;
-  padding: 1em;
+  text-align: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 5em;
+  clear:both;
+  background-color: #2196F3;
+  color: white;
+  z-index: 100;  /* Always on top */
+  overflow: auto;  /* If content does not fit, scroll */
 }
 
 section#reviews {
   width: 80%;
-  margin: auto;
-}
-
-article.review  {
-  border: 1px dashed grey;
-  padding: 1em;
-  margin: 1em;
-  box-shadow: 10px 10px 5px #888888;
-
-}
-
-.review > header {
-  color: red;
-}
-
-.review figure {
-  width: 15%;
-}
-
-.review figure > img {
-  width: 100%;
-  max-height: 150px;
-  max-width: 150px;
-}
-
-.review .description {
-  text-align: justify;
+  margin: auto; /* distribute free space on left and right */
 }
 
 footer {
  background-color: grey;
  color: white;
+ position: fixed;
+ bottom: 0px;
+ height: 2em;
+ width: 100%;
 }
 
-/* After learning floats */
+/* Nav Properties */
 nav {
   float: left;
   max-width: 20%;
 }
+
+/* This is useful to separate a elements if we want them
+   on the same line */
+/* nav a::after {
+    content: " | "
+} */
 
 nav a {
   display: block;
@@ -72,13 +63,40 @@ nav a {
   max-width: 100%;
 }
 
-nav a::after {
-  /* Actually just remove it */
-  content: ""
+article.review  {
+  border: 1px dashed grey;
+  padding: 1em;
+  margin: 1em;
+  box-shadow: 10px 10px 5px #888888;
 }
 
-footer {
-  clear: both;
+/* We need to make sure that nav and reviews don't start from the top,
+or they will be covered by the header. Also they might be covered by the
+footer, so they need to end bofore it starts*/
+nav, #reviews {
+  position: relative;
+  height: calc(100vh - 8em);  /* Wooot we can do math in CSS */
+  overflow: scroll;
+  top: 4em;
+}
+
+/* Let's configure our articles now */
+.review > header {
+  color: red;
+}
+
+/* This might be unsafe, if we ever decide to add multiple figures in
+   the article. It would be better to use a class name.*/
+.review > figure {
+  width: 15%;
+  float: left;
+  display: block;
+}
+
+.review > figure > img {
+  width: 100%;
+  max-height: 150px;
+  max-width: 150px;
 }
 
 .review .category {
@@ -94,13 +112,9 @@ footer {
 .review .description {
   float: right;
   width: 70%;
-  overflow: auto;
   height: 5em;
-}
-
-.review figure {
-  float: left;
-  display: block;
+  overflow: auto; /* Fixed height, scrollbar if necessary */
+  text-align: justify;
 }
 
 .review .amenities {
@@ -119,39 +133,15 @@ footer {
   font-size: small;
 }
 
+/* Everything in review is floating, the article itself would collapse since
+it's not storing anything. With this block we add a simple text, using
+clear:both so it is forced to be under all the floating objects. It's hidden,
+so we will not see it, but it holds space and then keeps the article from
+collapsing */
 article.review:after {
    content: ".";
    visibility: hidden;
    display: block;
    height: 0;
    clear: both;
-}
-
-/* Let's work with the position tag*/
-header#mainheader {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 80px;
-  max-height: 100px;
-  clear:both;
-  background-color: #2196F3;
-  color: white;
-  z-index: 100;
-  overflow: auto;
-}
-
-nav, #reviews {
-  position: relative;
-  height: calc(100vh - 80px - 4em);
-  overflow: scroll;
-  top: calc(80px + 2em);
-}
-
-footer {
-  position: fixed;
-  bottom: 0px;
-  height: 2em;
-  width: 100%;
 }
