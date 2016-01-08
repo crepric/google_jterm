@@ -1,0 +1,8 @@
+@@ parameterized
+    | deviceName | tags      | size     |
+    | Mobile     | mobile    | 320x600  |
+    | Tablet     | tablet    | 640x480  |
+    | Desktop    | desktop   | 1024x800 |
+Home page test on ${deviceName}
+    file:///Users/crepric/jterm/code/testing-selenium/simple.html ${size}
+        check galen_test.gspec --include  "${tags}"

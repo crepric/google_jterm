@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>QUnit basic example</title>
+  <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.20.0.css">
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="http://code.jquery.com/qunit/qunit-1.20.0.js"></script>
+  <script src="myscript.js"></script>
+  <script>
+    QUnit.test( "Testing compute_tax operation", function( assert ) {
+      var tested_sum = 123;
+      var tax_rate = 8.5;
+      var expected_tax = tested_sum * tax_rate / 100;
+      var value = compute_tax(tested_sum, tax_rate);
+      assert.equal( value, expected_tax, "We expect the 8.5% of 123 to be " + expected_tax);
+    });
+    QUnit.test( "Testing counter_checkout operation for one item", function( assert ) {
+      var items = [100];
+      var tax_rate = 10;
+      var tip_rate = 15;
+
+      var sum = items.reduce(
+           function(prev,current){
+             return  +(current) + prev;
+           }, 0
+         );
+      var expected_total = sum + sum * tax_rate / 100 + sum * tip_rate / 100;
+      var value = counter_checkout(items, tax_rate, tip_rate);
+      assert.deepEqual( value, expected_total, "Checkout for one item, positive tax tip");
+    });
+    QUnit.test( "Testing counter_checkout operation for multiple items", function( assert ) {
+      var items = [100, 125, 164, 1213, 444];
+      var tax_rate = 10;
+      var tip_rate = 15;
+
+      var sum = items.reduce(
+           function(prev,current){
+             return  +(current) + prev;
+           }, 0
+         );
+      var expected_total = sum + sum * tax_rate / 100 + sum * tip_rate / 100;
+      var value = counter_checkout(items, tax_rate, tip_rate);
+      assert.deepEqual( value, expected_total, "Checkout for 5 items, positive tax tip");
+    });
+  </script>
+</body>
+</html>

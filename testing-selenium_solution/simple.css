@@ -1,0 +1,56 @@
+/* Add this to fix failing test on mobile */
+body {
+  margin: 0px;
+}
+
+nav {
+  display: block;
+  float: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+article {
+  display: block;
+  float: none;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  background-color: green;
+}
+
+a {
+  display: block;
+}
+
+[id*="box-"] {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  height: 200px;
+  border: 1px solid red;
+  background-color: blue;
+  display: block;
+}
+
+@media only screen and (min-width: 480px) {
+  nav {
+    float: left;
+    width: 18%;
+  }
+
+  article {
+    float: right;
+    width: 80%;
+  }
+
+  [id*="box-"] {
+    float: right;
+    clear: right;
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    margin: 10px;
+  }
+}

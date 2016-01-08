@@ -1,0 +1,33 @@
+#outer_box {
+  border: 1px solid red;
+  width: 50%;
+  margin: auto;
+  padding: 10px;
+}
+
+#counter {
+  display: block;
+  box-shadow: 5px 5px 10px;
+  border: 1px solid black;
+  width: 50%;
+  font-size: 10em;
+  height: 1em;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+}
+
+button {
+  background-color: lightgray;
+  margin: auto;
+  margin-top: 10px;
+  display: block;
+  font-size: 1.3em;
+}
+
+#faces_container{
+  margin:auto;
+  display: block;
+  width: 50%;
+  text-align: center;
+}

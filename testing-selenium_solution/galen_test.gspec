@@ -1,0 +1,21 @@
+@objects
+    navarea   css   nav
+    articlearea css article
+
+= Main section =
+    @on desktop, tablet
+        navarea:
+            width < 20% of screen/width
+            near articlearea < 3% of screen/width left
+
+        articlearea:
+            width > 70% of screen/width
+
+
+    @on mobile
+        navarea:
+            width > 99% of screen/width
+            near articlearea < 3% of screen/height top
+
+        articlearea:
+            width > 99% of screen/width
