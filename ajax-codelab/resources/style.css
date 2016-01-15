@@ -1,0 +1,37 @@
+.box_and_button {
+  border: 1px solid black;
+  height: 250px;
+  width: 200px;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+}
+
+.box {
+  border: 1px solid black;
+  height: 180px;
+  width: 180px;
+  margin: auto;
+}
+
+.delay_button {
+  height: 3em;
+  margin: 10px auto;
+  display: block;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
