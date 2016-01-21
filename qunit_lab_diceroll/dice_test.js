@@ -17,11 +17,20 @@
 QUnit.test(
   "Testing that for any value between 2 and 16 the number of faces is correct",
   function( assert ) {
+    // Create the object using one of the three
+    // function. Use a for loop to test different
+    // number of faces
+
+    // Test that num_faces is actually what
+    // expected using assert.
 
   });
 
 
 QUnit.test( "Testing that value is returned within range", function( assert ) {
+    // Create a Die
+    // Call roll a high number of times
+    // assert that number returned is never higher than number of faces..
 
   });
 

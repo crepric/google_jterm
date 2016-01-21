@@ -58,9 +58,9 @@ class CreateEntriesHandler(webapp2.RequestHandler):
                 department_obj = department_key.get()
                 for i in range(classes_count):
                     class_full_name = "%s - Class %d" % (dept['name'] ,i)
-                    department = department_key
                     class_key = Class(id='%s-%d'%(dept['code'], i),
-                          class_full_name = class_full_name).put()
+                          class_full_name = class_full_name,
+                        department = department_key).put()
                     department_obj.classes.append(class_key)
                 department_obj.put()
 
